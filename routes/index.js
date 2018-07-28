@@ -1,9 +1,17 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+
+const model = require("../model")
+const Blog = model.Blog
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  Blog.find({}, (err, blogs) => {
+    if (err) return handleError(err)
+    else {
+      res.render('index', { blogs });
+    }
+  })
 });
 
 module.exports = router;
