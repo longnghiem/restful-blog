@@ -14,4 +14,20 @@ router.get('/', function(req, res, next) {
   })
 });
 
+
+router.get('/new', (req, res) => {
+  res.render('new')
+})
+
+router.post("/", (req, res)=> {
+  Blog.collection.insert(req.body.blog, err => {
+    if (err) {
+      res.render('new')
+    } else {
+      console.log('added 1 new blog.')
+      res.redirect('/blogs')
+    }
+  })
+})
+
 module.exports = router;
