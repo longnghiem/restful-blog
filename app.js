@@ -23,7 +23,7 @@ app.set('view engine', 'ejs');
 
 //put this on top
 app.use(methodOverride("_method"))
-//put this after bodyParser
+//put this after bodyParse
 app.use(expressSanitizer())
 
 app.use(logger('dev'));
