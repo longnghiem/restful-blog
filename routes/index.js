@@ -20,6 +20,7 @@ router.get('/new', (req, res) => {
 })
 
 router.post("/", (req, res)=> {
+  req.body.blog.body = req.sanitize(req.body.blog.body)
   Blog.collection.insert(req.body.blog, err => {
     if (err) {
       res.render('new')

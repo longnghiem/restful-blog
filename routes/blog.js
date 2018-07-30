@@ -25,6 +25,7 @@ router.get('/:id/edit', (req, res) => {
 })
 
 router.put('/:id/', (req,res)=>{
+  req.body.blog.body = req.sanitize(req.body.blog.body)
   const id = req.params.id;
   Blog.findByIdAndUpdate(id, req.body.blog, err => {
     if (err) return handleError(err)
