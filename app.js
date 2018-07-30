@@ -4,6 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const methodOverride = require("method-override")
+const expressSanitizer = require("express-sanitizer")
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -22,6 +23,8 @@ app.set('view engine', 'ejs');
 
 //put this on top
 app.use(methodOverride("_method"))
+//put this after bodyParser
+app.use(expressSanitizer())
 
 app.use(logger('dev'));
 app.use(express.json());

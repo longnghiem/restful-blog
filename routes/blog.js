@@ -34,4 +34,14 @@ router.put('/:id/', (req,res)=>{
   } )
 })
 
+router.delete('/:id', (req,res)=> {
+  const id = req.params.id;
+  Blog.findByIdAndRemove(id, err => {
+    if (err) return handleError(err)
+    else {
+      res.redirect('/blogs')
+    }
+  })
+})
+
 module.exports = router;
