@@ -7,7 +7,7 @@ const Blog = model.Blog
 /* GET home page. */
 router.get('/', function(req, res, next) {
   Blog.find({}, (err, blogs) => {
-    if (err) return handleError(err)
+    if (err) {console.log(err)}
     else {
       res.render('index', { blogs });
     }
