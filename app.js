@@ -4,6 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const methodOverride = require("method-override")
+//use sanitizer in every method that deal with user input
 const expressSanitizer = require("express-sanitizer")
 
 const indexRouter = require('./routes/index');
